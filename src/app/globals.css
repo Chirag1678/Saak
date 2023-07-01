@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+@font-face {
+	font-family: Lato-Reg;
+	src: url(./assets/fonts/lato/Lato-Regular.ttf);
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src: url(./assets/fonts/lato/Lato-Light.ttf);
+}
+
+@font-face {
+	font-family: Cabinet;
+	src: url(./assets/fonts/Cabinet-grotsek/CabinetGrotesk-Variable.ttf);
+}
+
+body {
+	color: #fff;
+}
+
+.navActive {
+	color: #fff;
+}
+
+.navOthers {
+	opacity: 0.4;
+}
+
+.font-latoLight {
+	font-family: Lato-Light;
+}
+
+.font-latoRegular {
+	font-family: Lato-Reg;
+}
+
+.font-Cabinet {
+	font-family: Cabinet;
+}
+
+.brownTextShade {
+	color: #302b2f;
+}
+
+.brownBgShade {
+	background-color: #302b2f;
+}
