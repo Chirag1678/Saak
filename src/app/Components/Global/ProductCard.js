@@ -10,15 +10,15 @@ const ProductCard = (props) => {
 	const [cartCount, setCartCount] = useState(0);
 
 	const onEnter = ({ currentTarget }) => {
-		gsap.to(currentTarget, { borderColor: "#cb492b", ease: "" });
+		gsap.to(currentTarget, { borderColor: "#cb492b", ease: "circ.out" });
 	};
 
 	const onLeave = ({ currentTarget }) => {
-		gsap.to(currentTarget, { borderColor: "", transition: "transition-all" });
+		gsap.to(currentTarget, { borderColor: "" });
 	};
 	return (
 		<div
-			className="flex flex-col p-[17px_8px] rounded-2xl gap-y-3 h-full border-2 border-transparent"
+			className="flex flex-col p-[17px_8px] rounded-2xl gap-y-3 h-full border-2 border-transparent transition-all"
 			onMouseEnter={onEnter}
 			onMouseLeave={onLeave}
 		>
