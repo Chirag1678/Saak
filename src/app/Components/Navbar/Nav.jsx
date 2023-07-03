@@ -35,7 +35,14 @@ const Nav = () => {
 					</div>
 					<button className="border-2 border-[#fff] p-[7px_18px] rounded-full flex font-Cabinet font-bold gap-x-[9px] items-center text-[14px]">
 						<div className="rounded-full w-[11.25px] h-[11.25px] border-2 border-white bg-[#fff]"></div>
-						Ansh
+						<Link href="/Login" className="hover:opacity-40 transition-all">
+							Login
+						</Link>{" "}
+						/
+						<Link href="/Signup" className="hover:opacity-40 transition-all">
+							{" "}
+							Signup
+						</Link>
 					</button>
 				</nav>
 			</header>
