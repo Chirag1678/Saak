@@ -5,7 +5,7 @@ import "./style.css";
 
 const Hero = () => {
 	return (
-		<div className="container mx-auto pt-12 z-30 2xl:h-screen xl:h-screen lg:h-screen md:h-screen sm:h-screen h-fit grid grid-rows-6">
+		<div className="container mx-auto pt-12 z-30 2xl:h-screen xl:h-screen lg:h-screen md:h-fit sm:h-fit h-fit grid grid-rows-6">
 			<div className="row-span-3 flex 2xl:items-center xl:items-center">
 				<div className="grid 2xl:grid-cols-12 xl:grid-cols-12 lg:grid-cols-12 md:grid-cols-2 sm:grid-cols-2 grid-cols-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-10 px-10">
 					<div className="col-span-2"></div>
@@ -21,12 +21,12 @@ const Hero = () => {
 							to elevate your driving experience.
 						</div>
 						<div className="flex 2xl:flex-nowrap xl:flex-nowrap lg:flex-nowrap md:flex-nowrap sm:flex-nowrap flex-wrap justify-center 2xl:gap-x-10 xl:gap-x-10 lg:gap-x-10 md:gap-y-5 sm:gap-x-5 gap-y-2 pt-[29px] w-full">
-							<div className="heroBtn1 px-[10px] py-[10px] 2xl:text-2xl xl:text-base lg:text-[15px] md:text-[15px] sm:text-[14px] text-[14px] text-center font-Cabinet 2xl:w-fit xl:w-fit lg:w-fit md:w-fit sm:w-fit w-full">
+							<button className="heroBtn1 px-[10px] py-[10px] 2xl:text-2xl xl:text-base lg:text-[15px] md:text-[15px] sm:text-[14px] text-[14px] text-center font-Cabinet 2xl:w-fit xl:w-fit lg:w-fit md:w-fit sm:w-fit w-full font-normal">
 								Wanna see more?
-							</div>
-							<div className="heroBtn2 px-[10px] py-[10px] 2xl:text-2xl xl:text-base lg:text-[15px] md:text-[15px] sm:text-[14px] text-[14px] text-center font-Cabinet 2xl:w-fit xl:w-fit lg:w-fit md:w-fit sm:w-fit w-full">
+							</button>
+							<button className="heroBtn2 px-[10px] py-[10px] 2xl:text-2xl xl:text-base lg:text-[15px] md:text-[15px] sm:text-[14px] text-[14px] text-center font-Cabinet 2xl:w-fit xl:w-fit lg:w-fit md:w-fit sm:w-fit w-full font-normal">
 								Shop Now
-							</div>
+							</button>
 						</div>
 					</div>
 					<div className="col-span-2"></div>

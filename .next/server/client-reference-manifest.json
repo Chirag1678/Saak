@@ -327,7 +327,7 @@
       "id": "(app-client)/./src/app/assets/Logo/Saak.png",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -335,7 +335,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -343,7 +343,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -351,7 +351,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -359,7 +359,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -367,7 +367,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/head.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -375,7 +375,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/head.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -383,7 +383,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -391,7 +391,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -407,7 +407,7 @@
       "id": "(app-client)/./src/app/assets/Dashboard/cardImg.png",
       "name": "*",
       "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -415,7 +415,7 @@
       "id": "(app-client)/./src/app/assets/Dashboard/cart.svg",
       "name": "*",
       "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     },
@@ -439,7 +439,7 @@
       "id": "(app-client)/./src/app/Components/Global/ProductCard.js",
       "name": "*",
       "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
       ],
       "async": false
     }
@@ -465,6 +465,10 @@
       "files": [
         "static/css/app/layout.css"
       ]
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Catalogue/page": {
+      "modules": [],
+      "files": []
     }
   }
 }
