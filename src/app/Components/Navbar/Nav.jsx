@@ -6,8 +6,8 @@ import "next/navigation";
 
 const Nav = () => {
 	return (
-		<div className="relative container mx-auto 2xl:block xl:block lg:block md:hidden sm:hidden hidden pt-16">
-			<header className="container mx-auto w-full">
+		<div className="relative container mx-auto 2xl:block xl:block lg:block md:hidden sm:hidden hidden">
+			<header className="container mx-auto w-full fixed bg-[#393037] z-30 py-8">
 				<nav id="Nav" className="flex justify-between items-center">
 					<div className="gap-x-[97px] flex items-center">
 						<Link href="/">

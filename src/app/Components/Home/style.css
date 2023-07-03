@@ -1,0 +1,21 @@
+.heroBtn1 {
+	border-radius: 10px;
+	border-radius: 10px;
+	background: linear-gradient(194deg, #d4645d 0%, #a6443e 100%);
+	box-shadow: -8px 9px 18px 0px rgba(0, 0, 0, 0.25);
+}
+
+.heroBtn2 {
+	border-radius: 10px;
+	background: linear-gradient(225deg, rgba(89, 53, 79, 0.87) 0%, #3f383d 100%);
+	box-shadow: -8px 9px 18px 0px rgba(0, 0, 0, 0.25);
+}
+
+.serviceCards {
+	border-radius: 21px;
+	background: radial-gradient(
+		203.26% 203.26% at 50% 50%,
+		#a6443e 0%,
+		#fa645c 39.57%
+	);
+}
