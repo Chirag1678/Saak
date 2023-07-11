@@ -1,8 +1,11 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Nav from "./Components/Navbar/Nav";
-import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
+import ExcludedNav from "./ExcludedNav";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Providers } from "./Components/Providers/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -180,7 +183,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className="bg-[#393037]">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<Providers>
+					<ToastContainer
+						position="top-center"
+						autoClose={1500}
+						hideProgressBar={false}
+						newestOnTop={false}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+						theme="dark"
+					/>
+					<ExcludedNav>
+						<Nav />
+					</ExcludedNav>
+					{children}
+				</Providers>
+			</body>
 		</html>
 	);
 }
