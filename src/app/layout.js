@@ -36,6 +36,7 @@ export const dashboardTrendingCards = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-RW",
 	},
 	{
 		uuid: uuidv4(),
@@ -43,6 +44,7 @@ export const dashboardTrendingCards = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-RW",
 	},
 	{
 		uuid: uuidv4(),
@@ -50,6 +52,7 @@ export const dashboardTrendingCards = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-RW",
 	},
 	{
 		uuid: uuidv4(),
@@ -57,6 +60,7 @@ export const dashboardTrendingCards = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-RW",
 	},
 ];
 
@@ -67,6 +71,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-RW",
 	},
 	{
 		uuid: uuidv4(),
@@ -74,6 +79,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -81,6 +87,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -88,6 +95,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -95,6 +103,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -102,6 +111,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -109,6 +119,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -116,6 +127,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -123,6 +135,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -130,6 +143,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -137,6 +151,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -144,6 +159,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -151,6 +167,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -158,6 +175,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -165,6 +183,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 	{
 		uuid: uuidv4(),
@@ -172,6 +191,7 @@ export const CatalogueData = [
 		title: "Rear Bumper Model- RW",
 		price: "19990",
 		currentCart: 0,
+		PCode: "RBM-R",
 	},
 ];
 
@@ -181,6 +201,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+	// console.log(children);
+
 	return (
 		<html lang="en" className="bg-[#393037]">
 			<body className={inter.className}>

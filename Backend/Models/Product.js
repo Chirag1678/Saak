@@ -3,39 +3,62 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let Product = new Schema({
+	// PCode
 	PCode: {
 		type: String,
 		required: true,
 	},
+
+	// Name
 	PName: {
 		type: String,
 		required: true,
 	},
+
+	// Price
 	PPrice: {
 		type: Number,
 		required: true,
 	},
+
+	// Features
+	PFeatures: [{ type: String, required: true }],
+
+	// Description
 	PDescription: {
 		type: String,
 		required: true,
 	},
-	PImage: {
-		type: String,
-		required: true,
-	},
+
+	// Images
+	PImages: [
+		{
+			type: String,
+			required: true,
+		},
+	],
+
+	// Stock
 	PStock: {
 		type: Number,
 		required: true,
 	},
+
+	// Category
 	PCategory: {
 		type: String,
 		required: true,
 	},
-	PBrand: {
-		type: String,
-		required: true,
-	},
 
+	// Brand
+	PBrand: [
+		{
+			type: String,
+			required: true,
+		},
+	],
+
+	// Dimensions
 	PDimensions: {
 		PWeight: {
 			type: Number,
@@ -54,13 +77,16 @@ let Product = new Schema({
 			required: true,
 		},
 	},
+
+	// Reviews
 	PReviews: [
 		{
-			Uuid: String,
+			Name: String,
 			Review: String,
+			Date: String,
 			Rating: String,
 		},
 	],
 });
 
-module.exports = Product;
+module.exports.Product = mongoose.model("Catalogue", Product);

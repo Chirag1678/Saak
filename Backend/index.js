@@ -16,6 +16,7 @@ app.use(
 // Routes
 const userRoute = require("./Routes/UserRoutes");
 const usernameRoute = require("./Routes/UsernameRoutes");
+const ProductRoute = require("./Routes/ProductRoutes");
 
 // Importing Schemas
 const uri = process.env.MONGODB_URL;
@@ -41,6 +42,7 @@ app.get("/", async (req, res) => {});
 
 app.use("/api/auth/", userRoute);
 app.use("/api/Username/", usernameRoute);
+app.use("/Product/", ProductRoute);
 
 app.listen(process.env.PORT || 8000, async () => {
 	console.log(`started on ${process.env.PORT}`);
