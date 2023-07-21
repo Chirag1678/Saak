@@ -51,6 +51,13 @@ let User = new Schema({
 			TotalPrice: Number,
 		},
 	],
+	Wishlist: [
+		{
+			PCode: String,
+			Liked: { type: Boolean, default: false },
+			DateTime: String,
+		},
+	],
 });
 
 module.exports.User = mongoose.model("Users", User);

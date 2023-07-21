@@ -1,4 +1,5 @@
 const { Product } = require("../Models/Product");
+const { User } = require("../Models/Users");
 
 // Add a product
 async function addProduct(NewProduct) {
@@ -9,11 +10,17 @@ async function addProduct(NewProduct) {
 			PDescription: NewProduct.PDescription,
 			PPrice: NewProduct.PPrice,
 			PFeatures: NewProduct.PFeatures,
-			PImages: NewProduct.PImages,
+			PImages: {
+				MainImg: NewProduct.PImages.MainImg,
+				Img1: NewProduct.PImages.Img1,
+				Img2: NewProduct.PImages.Img2,
+				Img3: NewProduct.PImages.Img3,
+				Img4: NewProduct.PImages.Img4,
+			},
 			PStock: NewProduct.PStock,
 			PCategory: NewProduct.PCategory,
 			PBrand: NewProduct.PBrand,
-			PReviews: [...NewProduct.PReviews],
+			PReviews: NewProduct.PReviews,
 			PDimensions: {
 				PWeight: NewProduct.PDimensions.PWeight,
 				PLength: NewProduct.PDimensions.PLength,
@@ -66,9 +73,58 @@ async function FindProduct(Pcode) {
 			},
 		},
 	];
+	const UserPipeline = [
+		{
+			$match: {
+				"Wishlist.Liked": true,
+			},
+		},
+	];
 	const Prod = await Product.aggregate(pipeline);
-	console.log(Prod);
-	return Prod[0];
+	const UserWishlist = await User.aggregate(UserPipeline);
+
+	console.log(UserWishlist[0]);
+
+	if (Prod[0].PCode)
+		if (Prod.length === 0) {
+			return false;
+		} else {
+			return Prod[0];
+		}
+}
+
+async function allProducts() {
+	const pipeline = [
+		{
+			$match: {},
+		},
+	];
+
+	return await Product.aggregate(pipeline);
+}
+
+async function deleteProduct(PCode) {
+	try {
+		await Product.deleteOne({ PCode });
+		return true;
+	} catch (err) {
+		return false;
+	}
+}
+
+async function updateStock(PCode, PStock) {
+	try {
+		const response = await Product.updateOne({ PCode: PCode }, [
+			{ $set: { PStock: PStock } },
+		]);
+		if (response.modifiedCount !== 0) {
+			return true;
+		} else {
+			throw err;
+		}
+	} catch (err) {
+		return false;
+	}
 }
 
 module.exports = {
@@ -76,4 +132,7 @@ module.exports = {
 	validateProduct,
 	DeleteAllProducts,
 	FindProduct,
+	allProducts,
+	deleteProduct,
+	updateStock,
 };

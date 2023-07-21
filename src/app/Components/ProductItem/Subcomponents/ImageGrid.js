@@ -1,42 +1,33 @@
-import React from "react";
-import img1 from "../../../assets/Product/thar1.png";
-import img2 from "../../../assets/Product/thar2.png";
-import img3 from "../../../assets/Product/thar3.png";
-import Image from "next/image";
+"use client";
 
-const ImageGrid = () => {
-	return (
-		<div className="grid grid-cols-2 h-[435px] gap-x-[30px] w-full">
-			<div className="relative h-full w-full">
-				<Image
-					src={img1}
-					fill
-					alt=""
-					className="object-cover w-full h-full rounded-2xl"
-				/>
-			</div>
-			<div className="w-full h-full">
-				<div className="flex flex-col gap-y-[30px] h-full w-full">
-					<div className="img2 relative h-full">
-						<Image
-							src={img2}
-							className="object-cover w-full rounded-2xl"
-							alt=""
-							fill
-						/>
-					</div>
-					<div className="img2 relative h-full">
-						<Image
-							src={img3}
-							className="object-cover w-full rounded-2xl"
-							alt=""
-							fill
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+import React from "react";
+import Grid1 from "./ImageGrids/Grid1";
+import Grid2 from "./ImageGrids/Grid2";
+import Grid3 from "./ImageGrids/Grid3";
+import Grid4 from "./ImageGrids/Grid4";
+import Grid5 from "./ImageGrids/Grid5";
+
+const ImageGrid = ({ data }) => {
+	var numImages = 0;
+	// console.log(Object.values(data));
+	Object.values(data).forEach((e) => {
+		if (typeof e === "string") {
+			numImages += 1;
+		}
+	});
+	// console.log(numImages);
+
+	if (numImages === 1) {
+		return <Grid1 props={data} />;
+	} else if (numImages === 2) {
+		return <Grid2 props={data} />;
+	} else if (numImages === 3) {
+		return <Grid3 props={data} />;
+	} else if (numImages === 4) {
+		return <Grid4 props={data} />;
+	} else if (numImages === 5) {
+		return <Grid5 props={data} />;
+	}
 };
 
 export default ImageGrid;

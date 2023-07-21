@@ -31,12 +31,16 @@ let Product = new Schema({
 	},
 
 	// Images
-	PImages: [
-		{
+	PImages: {
+		MainImg: {
 			type: String,
 			required: true,
 		},
-	],
+		Img1: String,
+		Img2: String,
+		Img3: String,
+		Img4: String,
+	},
 
 	// Stock
 	PStock: {
@@ -48,6 +52,7 @@ let Product = new Schema({
 	PCategory: {
 		type: String,
 		required: true,
+		default: "Normal",
 	},
 
 	// Brand

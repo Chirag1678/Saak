@@ -32,7 +32,7 @@ const Signup = () => {
 		) {
 			newUser.Username = username;
 			await axios
-				.post("http://localhost:8000/api/auth/Signup", newUser)
+				.post("http://localhost:8000/api/Auth/Signup", newUser)
 				.then((res) => {
 					if (res.status == 200) {
 						toastSuccess("Successfully Signed up");
@@ -45,7 +45,7 @@ const Signup = () => {
 					}
 				})
 				.catch((err) => {
-					toastError(err.response.data);
+					toastError("Not Working");
 				});
 		}
 	};

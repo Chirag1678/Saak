@@ -23,10 +23,7 @@ const Arrow = (props) => {
 const BuyBtn = () => {
 	const [arrowLen, setArrowLen] = useState(20);
 	return (
-		<button
-			className="bg-[#d8d1d0] font-light font-Cabinet gap-x-[10px] py-[6px] px-[12px] flex items-center text-[#404040] rounded-xl buyBtn"
-			onHover={() => setArrowLen(100)}
-		>
+		<button className="bg-[#d8d1d0] font-light font-Cabinet gap-x-[10px] py-[6px] px-[12px] flex items-center text-[#404040] rounded-xl buyBtn">
 			Buy Now
 			<Arrow len={arrowLen} />
 		</button>

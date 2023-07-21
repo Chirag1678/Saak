@@ -10,12 +10,14 @@ import "../Signup/style.css";
 import { login } from "./Store/Users";
 import { useSelector, useDispatch } from "react-redux";
 
-import { toastSuccess, toastError } from "../Toasts/Toast";
+import { toastSuccess, toastError, toastWarning } from "../Toasts/Toast";
 
 const Login = () => {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	// const [session, loading] = useSession();
 	// const name = useSelector((state) => state.user.value);
 
 	const handleSubmit = (e) => {
@@ -50,6 +52,14 @@ const Login = () => {
 		}
 	};
 
+	// if (loading) {
+	// 	toastWarning("Loading...");
+	// }
+
+	// if (session) {
+	// 	toastSuccess("Already Logged in!");
+	// }
+
 	return (
 		<div className="bg-[url('./assets/Authentication/authBg.png')] h-screen bg-contain bg-no-repeat bg-bottom relative z-90 flex justify-center items-center">
 			<div className="bg-[#fff] p-[35px_63px] rounded-2xl flex flex-col gap-y-[20px] cardBg">
@@ -71,7 +81,7 @@ const Login = () => {
 						</div>
 						<div></div>
 					</div>
-					<div className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black">
+					<button className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black">
 						<div className="p-1 h-fit">
 							<div className=" relative p-5 h-fit">
 								<Image src={Google} fill className="p-1 h-fit" quality={1000} />
@@ -80,7 +90,7 @@ const Login = () => {
 						<div className="text-[#393037] text-base font-bold font-Cabinet">
 							Login with google
 						</div>
-					</div>
+					</button>
 				</div>
 
 				<div className="orDiv">

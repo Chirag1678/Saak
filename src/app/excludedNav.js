@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Nav from "./Components/Navbar/Nav";
 
-const excludedPages = ["/Auth/Login", "/Auth/Signup"];
+const excludedPages = [
+	"/Auth/Login",
+	"/Auth/Signup",
+	"/Admin",
+	"/Admin/Products",
+	"/Admin/Products/AddProduct",
+];
 
 const ExcludedNav = ({ children }) => {
 	const pathname = usePathname();

@@ -1,0 +1,11 @@
+.imgInput::-webkit-file-upload-button {
+	visibility: hidden;
+}
+
+.checkbox {
+	background-color: #d8d1d0;
+}
+
+.checkbox:checked {
+	background-color: #302b2f;
+}

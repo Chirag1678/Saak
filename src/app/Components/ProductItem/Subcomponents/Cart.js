@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import cart from "../../../assets/Product/Cart.svg";
 
-const Cart = () => {
+const Cart = ({ stock }) => {
 	const [cartQuantity, setCartQuantity] = useState(0);
 
 	const increment = () => {
-		setCartQuantity(cartQuantity + 1);
+		if (cartQuantity !== stock) {
+			setCartQuantity(cartQuantity + 1);
+		}
 	};
 
 	const decrement = () => {

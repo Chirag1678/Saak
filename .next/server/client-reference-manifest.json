@@ -120,9 +120,73 @@
         "async": false
       }
     },
+    "(app-client)/./src/app/store/Products.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/store/Products.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
     "(app-client)/./node_modules/react-toastify/dist/react-toastify.esm.mjs": {
       "*": {
         "id": "(sc_client)/./node_modules/react-toastify/dist/react-toastify.esm.mjs",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Admin/Products/AddProduct/page.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Admin/Products/AddProduct/page.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Components/AdminComponents/AddProduct/InputBox.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Components/AdminComponents/AddProduct/InputBox.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/assets/Admin/DeleteIcon.svg": {
+      "*": {
+        "id": "(sc_client)/./src/app/assets/Admin/DeleteIcon.svg",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/assets/Admin/EditIcon.svg": {
+      "*": {
+        "id": "(sc_client)/./src/app/assets/Admin/EditIcon.svg",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Admin/Products/page.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Admin/Products/page.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Components/AdminComponents/Stocker.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Components/AdminComponents/Stocker.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Components/Cart/Subcomponents/CartQuantity.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Components/Cart/Subcomponents/CartQuantity.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -160,30 +224,6 @@
         "async": false
       }
     },
-    "(app-client)/./src/app/assets/Product/thar1.png": {
-      "*": {
-        "id": "(sc_client)/./src/app/assets/Product/thar1.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./src/app/assets/Product/thar2.png": {
-      "*": {
-        "id": "(sc_client)/./src/app/assets/Product/thar2.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./src/app/assets/Product/thar3.png": {
-      "*": {
-        "id": "(sc_client)/./src/app/assets/Product/thar3.png",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./src/app/Components/ProductItem/ProductItem.js": {
       "*": {
         "id": "(sc_client)/./src/app/Components/ProductItem/ProductItem.js",
@@ -208,41 +248,25 @@
         "async": false
       }
     },
-    "(app-client)/./src/app/assets/Home/backgroundHero.png": {
+    "(app-client)/./src/app/Components/ProductItem/Subcomponents/ImageGrid.js": {
       "*": {
-        "id": "(sc_client)/./src/app/assets/Home/backgroundHero.png",
+        "id": "(sc_client)/./src/app/Components/ProductItem/Subcomponents/ImageGrid.js",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js": {
+    "(app-client)/./src/app/Components/ProductItem/Subcomponents/LikeIcon.js": {
       "*": {
-        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "id": "(sc_client)/./src/app/Components/ProductItem/Subcomponents/LikeIcon.js",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./src/app/assets/Authentication/backBtn.svg": {
+    "(app-client)/./src/app/[Product]/page.js": {
       "*": {
-        "id": "(sc_client)/./src/app/assets/Authentication/backBtn.svg",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./src/app/assets/Authentication/google.svg": {
-      "*": {
-        "id": "(sc_client)/./src/app/assets/Authentication/google.svg",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./src/app/Components/Login/Login.js": {
-      "*": {
-        "id": "(sc_client)/./src/app/Components/Login/Login.js",
+        "id": "(sc_client)/./src/app/[Product]/page.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -291,6 +315,46 @@
     "(app-client)/./src/app/Components/Global/ProductCard.js": {
       "*": {
         "id": "(sc_client)/./src/app/Components/Global/ProductCard.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/assets/Home/backgroundHero.png": {
+      "*": {
+        "id": "(sc_client)/./src/app/assets/Home/backgroundHero.png",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/assets/Authentication/backBtn.svg": {
+      "*": {
+        "id": "(sc_client)/./src/app/assets/Authentication/backBtn.svg",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/assets/Authentication/google.svg": {
+      "*": {
+        "id": "(sc_client)/./src/app/assets/Authentication/google.svg",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/Components/Login/Login.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/Components/Login/Login.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -463,7 +527,7 @@
       "id": "(app-client)/./src/app/assets/Logo/Saak.png",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
       ],
       "async": false
     },
@@ -471,7 +535,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -479,7 +543,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -487,7 +551,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -495,7 +559,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -503,7 +567,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/head.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -511,7 +575,7 @@
       "id": "(app-client)/./node_modules/next/dist/shared/lib/head.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -519,7 +583,7 @@
       "id": "(app-client)/./src/app/Components/Login/Store/Users.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
     },
@@ -527,7 +591,7 @@
       "id": "(app-client)/./src/app/Components/Navbar/Nav.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
       ],
       "async": false
     },
@@ -535,7 +599,7 @@
       "id": "(app-client)/./src/app/Components/Providers/Providers.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
       ],
       "async": false
     },
@@ -543,7 +607,15 @@
       "id": "(app-client)/./src/app/ExcludedNav.js",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/store/Products.js": {
+      "id": "(app-client)/./src/app/store/Products.js",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
       ],
       "async": false
     },
@@ -551,7 +623,63 @@
       "id": "(app-client)/./node_modules/react-toastify/dist/react-toastify.esm.mjs",
       "name": "*",
       "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
+        "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Admin/Products/AddProduct/page.js": {
+      "id": "(app-client)/./src/app/Admin/Products/AddProduct/page.js",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/AddProduct/page:static/chunks/app/Admin/Products/AddProduct/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/AdminComponents/AddProduct/InputBox.js": {
+      "id": "(app-client)/./src/app/Components/AdminComponents/AddProduct/InputBox.js",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/AddProduct/page:static/chunks/app/Admin/Products/AddProduct/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Admin/DeleteIcon.svg": {
+      "id": "(app-client)/./src/app/assets/Admin/DeleteIcon.svg",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/page:static/chunks/app/Admin/Products/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Admin/EditIcon.svg": {
+      "id": "(app-client)/./src/app/assets/Admin/EditIcon.svg",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/page:static/chunks/app/Admin/Products/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Admin/Products/page.js": {
+      "id": "(app-client)/./src/app/Admin/Products/page.js",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/page:static/chunks/app/Admin/Products/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/AdminComponents/Stocker.js": {
+      "id": "(app-client)/./src/app/Components/AdminComponents/Stocker.js",
+      "name": "*",
+      "chunks": [
+        "app/Admin/Products/page:static/chunks/app/Admin/Products/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/Cart/Subcomponents/CartQuantity.js": {
+      "id": "(app-client)/./src/app/Components/Cart/Subcomponents/CartQuantity.js",
+      "name": "*",
+      "chunks": [
+        "app/Cart/page:static/chunks/app/Cart/page.js"
       ],
       "async": false
     },
@@ -559,7 +687,7 @@
       "id": "(app-client)/./src/app/assets/Product/Cart.svg",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -567,7 +695,7 @@
       "id": "(app-client)/./src/app/assets/Product/boltOn.svg",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -575,7 +703,7 @@
       "id": "(app-client)/./src/app/assets/Product/compatible.svg",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -583,31 +711,7 @@
       "id": "(app-client)/./src/app/assets/Product/linexCoat.svg",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Product/thar1.png": {
-      "id": "(app-client)/./src/app/assets/Product/thar1.png",
-      "name": "*",
-      "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Product/thar2.png": {
-      "id": "(app-client)/./src/app/assets/Product/thar2.png",
-      "name": "*",
-      "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Product/thar3.png": {
-      "id": "(app-client)/./src/app/assets/Product/thar3.png",
-      "name": "*",
-      "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -615,7 +719,7 @@
       "id": "(app-client)/./src/app/Components/ProductItem/ProductItem.js",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -623,7 +727,7 @@
       "id": "(app-client)/./src/app/Components/ProductItem/Subcomponents/BuyBtn.js",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
       ],
       "async": false
     },
@@ -631,7 +735,79 @@
       "id": "(app-client)/./src/app/Components/ProductItem/Subcomponents/Cart.js",
       "name": "*",
       "chunks": [
-        "app/Product/[p]/page:static/chunks/app/Product/[p]/page.js"
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/ProductItem/Subcomponents/ImageGrid.js": {
+      "id": "(app-client)/./src/app/Components/ProductItem/Subcomponents/ImageGrid.js",
+      "name": "*",
+      "chunks": [
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/ProductItem/Subcomponents/LikeIcon.js": {
+      "id": "(app-client)/./src/app/Components/ProductItem/Subcomponents/LikeIcon.js",
+      "name": "*",
+      "chunks": [
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/[Product]/page.js": {
+      "id": "(app-client)/./src/app/[Product]/page.js",
+      "name": "*",
+      "chunks": [
+        "app/[Product]/page:static/chunks/app/[Product]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/arrow.svg": {
+      "id": "(app-client)/./src/app/assets/Dashboard/arrow.svg",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/cardImg.png": {
+      "id": "(app-client)/./src/app/assets/Dashboard/cardImg.png",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/cart.svg": {
+      "id": "(app-client)/./src/app/assets/Dashboard/cart.svg",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/searchIcon.svg": {
+      "id": "(app-client)/./src/app/assets/Dashboard/searchIcon.svg",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/Dashboard/Subcomponents/TrendingProducts.js": {
+      "id": "(app-client)/./src/app/Components/Dashboard/Subcomponents/TrendingProducts.js",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
+      ],
+      "async": false
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Components/Global/ProductCard.js": {
+      "id": "(app-client)/./src/app/Components/Global/ProductCard.js",
+      "name": "*",
+      "chunks": [
+        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
       ],
       "async": false
     },
@@ -682,54 +858,6 @@
         "app/Auth/Login/page:static/chunks/app/Auth/Login/page.js"
       ],
       "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/arrow.svg": {
-      "id": "(app-client)/./src/app/assets/Dashboard/arrow.svg",
-      "name": "*",
-      "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/cardImg.png": {
-      "id": "(app-client)/./src/app/assets/Dashboard/cardImg.png",
-      "name": "*",
-      "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/cart.svg": {
-      "id": "(app-client)/./src/app/assets/Dashboard/cart.svg",
-      "name": "*",
-      "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/assets/Dashboard/searchIcon.svg": {
-      "id": "(app-client)/./src/app/assets/Dashboard/searchIcon.svg",
-      "name": "*",
-      "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/Components/Dashboard/Subcomponents/TrendingProducts.js": {
-      "id": "(app-client)/./src/app/Components/Dashboard/Subcomponents/TrendingProducts.js",
-      "name": "*",
-      "chunks": [
-        "app/Dashboard/page:static/chunks/app/Dashboard/page.js"
-      ],
-      "async": false
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/Components/Global/ProductCard.js": {
-      "id": "(app-client)/./src/app/Components/Global/ProductCard.js",
-      "name": "*",
-      "chunks": [
-        "app/Catalogue/page:static/chunks/app/Catalogue/page.js"
-      ],
-      "async": false
     }
   },
   "entryCSSFiles": {
@@ -743,13 +871,33 @@
         "static/css/app/layout.css"
       ]
     },
-    "/Users/anshbhasin/Documents/Saak/src/app/Product/[p]/page": {
+    "/Users/anshbhasin/Documents/Saak/src/app/Admin/Products/AddProduct/page": {
+      "modules": [
+        "/Users/anshbhasin/Documents/Saak/src/app/Components/AdminComponents/style.css"
+      ],
+      "files": [
+        "static/css/app/Admin/Products/AddProduct/page.css"
+      ]
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Admin/Products/page": {
+      "modules": [],
+      "files": []
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Cart/page": {
+      "modules": [],
+      "files": []
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/[Product]/page": {
       "modules": [
         "/Users/anshbhasin/Documents/Saak/src/app/Components/ProductItem/style.css"
       ],
       "files": [
-        "static/css/app/Product/[p]/page.css"
+        "static/css/app/[Product]/page.css"
       ]
+    },
+    "/Users/anshbhasin/Documents/Saak/src/app/Dashboard/page": {
+      "modules": [],
+      "files": []
     },
     "/Users/anshbhasin/Documents/Saak/src/app/page": {
       "modules": [
@@ -766,14 +914,6 @@
       "files": [
         "static/css/app/Auth/Login/page.css"
       ]
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/Dashboard/page": {
-      "modules": [],
-      "files": []
-    },
-    "/Users/anshbhasin/Documents/Saak/src/app/Catalogue/page": {
-      "modules": [],
-      "files": []
     }
   }
 }

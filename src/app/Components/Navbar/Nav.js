@@ -24,8 +24,8 @@ const Nav = () => {
 				<nav id="Nav" className="flex justify-between items-center">
 					<div className="gap-x-[97px] flex items-center">
 						<Link href="/">
-							<img
-								src="https://res.cloudinary.com/dmgmcljcv/image/upload/v1688019782/Saak_u0haim.png"
+							<Image
+								src="https://res.cloudinary.com/dmgmcljcv/image/upload/v1689585648/Saak_jkq49h.svg"
 								alt="Logo"
 								width="100"
 								height="100"

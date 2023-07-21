@@ -17,6 +17,8 @@ app.use(
 const userRoute = require("./Routes/UserRoutes");
 const usernameRoute = require("./Routes/UsernameRoutes");
 const ProductRoute = require("./Routes/ProductRoutes");
+const AdminRoute = require("./Routes/Admin-Routes/AdminRoutes");
+const ImgRoutes = require("./Routes/Admin-Routes/ImageRoutes");
 
 // Importing Schemas
 const uri = process.env.MONGODB_URL;
@@ -43,6 +45,8 @@ app.get("/", async (req, res) => {});
 app.use("/api/auth/", userRoute);
 app.use("/api/Username/", usernameRoute);
 app.use("/Product/", ProductRoute);
+app.use("/Admin/", AdminRoute);
+app.use("/AdminImg/", ImgRoutes);
 
 app.listen(process.env.PORT || 8000, async () => {
 	console.log(`started on ${process.env.PORT}`);
