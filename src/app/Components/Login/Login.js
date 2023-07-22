@@ -6,41 +6,50 @@ import Link from "next/link";
 import Backbtn from "../../assets/Authentication/backBtn.svg";
 import Google from "../../assets/Authentication/google.svg";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import "../Signup/style.css";
 import { login } from "./Store/Users";
 import { useSelector, useDispatch } from "react-redux";
 
 import { toastSuccess, toastError, toastWarning } from "../Toasts/Toast";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
+	const name = useSelector((state) => state.user);
+	const router = useRouter();
 	// const [session, loading] = useSession();
 	// const name = useSelector((state) => state.user.value);
 
+	const handleGoogleSignin = async () => {
+		signIn("google", { callbackUrl: "http://localhost:3000/" });
+	};
+
 	const handleSubmit = (e) => {
 		try {
+			e.preventDefault();
+
 			const User = {
 				Email: email,
 				Password: password,
 			};
-			e.preventDefault();
 
 			axios
 				.post("http://localhost:8000/api/auth/Login", User)
 				.then(async (res) => {
 					if (res.status === 200) {
-						console.log(res.data.Name);
+						console.log(res.data);
 						toastSuccess("Login Successful");
-						const NAME = { value: res.data.Name };
-						dispatch(login(NAME));
+						const NAME = res.data.Name;
+						const USERNAME = res.data.Username;
+						dispatch(login({ NAME: NAME, USERNAME: USERNAME }));
+
 						// localStorage.setItem("Name", res.data.Name);
-						// const name = useSelector((state) => state.user.value);
-						// console.log(name);
+						console.log(name);
 						setTimeout(() => {
-							window.location.href = "/";
+							router.push("/");
 						}, 1000);
 					} else {
 						toastError("Invalid Credentials");
@@ -48,7 +57,7 @@ const Login = () => {
 				});
 		} catch (e) {
 			console.log(e);
-			toastError(e.response.data.error);
+			// toastError(e.response.data.error);
 		}
 	};
 
@@ -81,7 +90,10 @@ const Login = () => {
 						</div>
 						<div></div>
 					</div>
-					<button className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black">
+					<button
+						className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black"
+						onClick={handleGoogleSignin}
+					>
 						<div className="p-1 h-fit">
 							<div className=" relative p-5 h-fit">
 								<Image src={Google} fill className="p-1 h-fit" quality={1000} />

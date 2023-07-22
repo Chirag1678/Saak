@@ -61,8 +61,11 @@ router.post("/Login", async (req, res) => {
 		const OriginalPassowrd = HashedPassword.toString(CryptoJS.enc.Utf8);
 		if (OriginalPassowrd === password) {
 			// user is authenticated
-			name = user.Name;
-			res.status(200).json({ Name: user.Name, AuthStatus: "Authenticated" });
+			res.status(200).json({
+				Name: user.Name,
+				Username: user.Username,
+				AuthStatus: "Authenticated",
+			});
 		} else {
 			// user is not authenticated
 			res.status(401).json({ error: "Wrong Password" });

@@ -3,21 +3,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../assets/Logo/Saak.png";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useSession, signOut } from "next-auth/react";
+
+function Login() {
+	return (
+		<>
+			<Link href="/Auth/Login" className="hover:opacity-40 transition-all">
+				Login
+			</Link>{" "}
+			/
+			<Link href="/Auth/Signup" className="hover:opacity-40 transition-all">
+				Signup
+			</Link>
+		</>
+	);
+}
 
 const Nav = () => {
-	// const name = useSelector((state) => state);
-	// console.log(name);
-	var [name, setName] = useState("");
-	const handleLoad = async () => {
-		await axios.get("http://localhost:8000/api/Auth/Name").then((res) => {
-			setName(res.data);
-			// console.log(name);
-		});
-	};
-	handleLoad();
+	const { data: session } = useSession();
 	return (
 		<div className="relative container mx-auto 2xl:block xl:block lg:block md:hidden sm:hidden hidden">
 			<header className="container mx-auto w-full bg-[#393037] z-30 py-8 fixed">
@@ -46,12 +50,31 @@ const Nav = () => {
 							</Link>
 						</div>
 					</div>
-					<button className="border-2 border-[#fff] p-[7px_18px] rounded-full flex font-Cabinet font-bold gap-x-[9px] items-center text-[14px]">
-						{/* <div className="rounded-full w-[11.25px] h-[11.25px] border-2 border-white bg-[#fff]"></div> */}
-						<Link href="/Profile" className="text-white">
-							Hi, <span className="underline hover:cursor-pointer">{name}</span>
-						</Link>
-					</button>
+					{/* <div className="rounded-full w-[11.25px] h-[11.25px] border-2 border-white bg-[#fff]"></div> */}
+					<div className="flex gap-x-4">
+						{session ? (
+							<>
+								<button className="border-2 border-[#fff] p-[7px_18px] rounded-full flex font-Cabinet font-bold gap-x-[9px] items-center text-[14px]">
+									<Link href="/Profile" className="text-white">
+										Hi,{" "}
+										<span className="underline hover:cursor-pointer">
+											{session.user.name.split(" ")[0]}
+										</span>
+									</Link>
+								</button>
+								<button
+									className="border-2 border-[#fff] p-[7px_18px] rounded-full flex font-Cabinet font-bold gap-x-[9px] items-center text-[14px]"
+									onClick={signOut}
+								>
+									<span className="text-white">Log out</span>
+								</button>
+							</>
+						) : (
+							<button className="border-2 border-[#fff] p-[7px_18px] rounded-full flex font-Cabinet font-bold gap-x-[9px] items-center text-[14px]">
+								<Login />
+							</button>
+						)}
+					</div>
 				</nav>
 			</header>
 		</div>
@@ -59,20 +82,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-/* (
-								<Link
-									href="/Auth/Login"
-									className="hover:opacity-40 transition-all"
-								>
-									Login
-								</Link>
-							) /
-							(
-								<Link
-									href="/Auth/Signup"
-									className="hover:opacity-40 transition-all"
-								>
-									Signup
-								</Link>
-							) */

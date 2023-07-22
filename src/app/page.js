@@ -1,6 +1,7 @@
 import Hero from "./Components/Home/Hero";
 import Third from "./Components/Home/Third";
 import Fourth from "./Components/Home/Fourth";
+import { useSession } from "next-auth/react";
 
 export default async function Home() {
 	return (

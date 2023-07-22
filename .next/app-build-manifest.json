@@ -1,26 +1,27 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/Admin/Products/AddProduct/page": [
+    "/Auth/Login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/Admin/Products/AddProduct/page.css",
-      "static/chunks/app/Admin/Products/AddProduct/page.js"
+      "static/css/app/Auth/Login/page.css",
+      "static/chunks/app/Auth/Login/page.js"
     ],
-    "/Admin/Products/page": [
+    "/Dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/Admin/Products/page.js"
-    ],
-    "/Cart/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/Cart/page.js"
+      "static/chunks/app/Dashboard/page.js"
     ],
     "/[Product]/page": [
       "static/chunks/webpack.js",
@@ -28,22 +29,16 @@
       "static/css/app/[Product]/page.css",
       "static/chunks/app/[Product]/page.js"
     ],
-    "/Dashboard/page": [
+    "/Catalogue/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/Dashboard/page.js"
+      "static/chunks/app/Catalogue/page.js"
     ],
-    "/page": [
+    "/Auth/Signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
-    "/Auth/Login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/Auth/Login/page.css",
-      "static/chunks/app/Auth/Login/page.js"
+      "static/css/app/Auth/Signup/page.css",
+      "static/chunks/app/Auth/Signup/page.js"
     ]
   }
 }
