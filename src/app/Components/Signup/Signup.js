@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { toastSuccess, toastError } from "../Toasts/Toast";
+import { signIn, useSession } from "next-auth/react";
 
 const Signup = () => {
 	const [name, setName] = useState("");
@@ -85,6 +86,11 @@ const Signup = () => {
 			return;
 		}
 	};
+
+	const { data: session } = useSession();
+	const handleGoogleLogin = () => {
+		signIn("google");
+	};
 	return (
 		<div className="bg-[url('./assets/Authentication/authBg.png')] h-screen bg-contain bg-no-repeat bg-bottom relative z-90 flex justify-center items-center">
 			<div className="bg-[#fff] p-[35px_63px] rounded-2xl flex flex-col gap-y-[20px] cardBg">
@@ -105,7 +111,10 @@ const Signup = () => {
 						</div>
 						<div></div>
 					</div>
-					<div className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black">
+					<button
+						className="loginGoogle flex w-full justify-center items-center gap-2 px-16 border-2 border-black"
+						onClick={() => handleGoogleLogin()}
+					>
 						<div className="p-1 h-fit">
 							<div className=" relative p-5 h-fit">
 								<Image src={Google} fill className="p-1 h-fit" quality={1000} />
@@ -114,7 +123,7 @@ const Signup = () => {
 						<div className="text-[#393037] text-base font-bold font-Cabinet">
 							Signup with google
 						</div>
-					</div>
+					</button>
 				</div>
 
 				<div className="orDiv">
