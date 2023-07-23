@@ -2,7 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Nav from "./Components/Navbar/Nav";
 import { v4 as uuidv4 } from "uuid";
-import ExcludedNav from "./ExcludedNav";
+import ExcludedNav from "./excludedNav";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Providers } from "./Components/Providers/Providers";
