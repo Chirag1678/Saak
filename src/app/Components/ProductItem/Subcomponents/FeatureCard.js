@@ -39,7 +39,7 @@ const FeatureCard = ({ data }) => {
 	return (
 		<div className="w-full h-full flex-col bg-[#dbd1d0] py-[25px] rounded-2xl px-10">
 			<div className="flex w-full justify-between gap-x-16 gap-y-[25px]">
-				<div className="flex-col w-fit">
+				<div className="flex-col w-full">
 					<div className="font-Cabinet text-4xl font-bold text-[#302b2f]">
 						{data.Name}
 					</div>
@@ -80,7 +80,7 @@ const FeatureCard = ({ data }) => {
 				</div>
 			</div>
 
-			<div className="flex gap-x-[37px] mt-[25px]">
+			<div className="flex gap-x-[37px] mt-[25px] justify-between">
 				<div className="flex flex-col gap-y-[27px]">
 					<div className="flex flex-col gap-y-[7px]">
 						<div className="featuresText text-black text-3xl font-Cabinet font-bold">
@@ -97,7 +97,7 @@ const FeatureCard = ({ data }) => {
 					<div className="featurePoints text-black">
 						<ul className="font-lato text-base">
 							{arrDesc.map((e) => {
-								return <li>{e}</li>;
+								return <li key={e}>{e}</li>;
 							})}
 						</ul>
 					</div>

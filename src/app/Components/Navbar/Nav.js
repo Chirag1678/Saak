@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
@@ -22,6 +22,21 @@ function Login() {
 
 const Nav = () => {
 	const { data: session } = useSession();
+	const [name, setName] = useState();
+
+	console.log(session);
+
+	useEffect(() => {
+		if (session?.user?.name) {
+			try {
+				const a = session.user.name.split(" ")[0];
+				setName(a);
+			} catch {
+				setName(session.user.name);
+			}
+		}
+	}, [session]);
+
 	return (
 		<div className="relative container mx-auto 2xl:block xl:block lg:block md:hidden sm:hidden hidden">
 			<header className="container mx-auto w-full bg-[#393037] z-30 py-8 fixed">
@@ -58,7 +73,7 @@ const Nav = () => {
 									<Link href="/Profile" className="text-white">
 										Hi,{" "}
 										<span className="underline hover:cursor-pointer">
-											{session.user.name.split(" ")[0]}
+											{name}
 										</span>
 									</Link>
 								</button>

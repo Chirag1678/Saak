@@ -1,13 +1,11 @@
 import React from "react";
 import ProductCard from "../Global/ProductCard";
 
-const Catalogue = (props) => {
-	const cards = props.data;
-	/* console.log(cards); */
+const Catalogue = ({ data }) => {
 	return (
-		<div className=" px-5 py-5">
+		<div className=" px-5 pt-32">
 			<div className="grid grid-cols-5 container mx-auto gap-x-5 gap-y-5 justify-center">
-				{cards.map((card) => {
+				{data.map((card) => {
 					return <ProductCard data={card} />;
 				})}
 			</div>

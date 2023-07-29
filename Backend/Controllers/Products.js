@@ -73,26 +73,26 @@ async function FindProduct(Pcode) {
 			},
 		},
 	];
-	const UserPipeline = [
-		{
-			$match: {
-				"Wishlist.Liked": true,
-			},
-		},
-	];
+	// const UserPipeline = [
+	// 	{
+	// 		$match: {
+	// 			"Wishlist.Liked": true,
+	// 		},
+	// 	},
+	// ];
 	const Prod = await Product.aggregate(pipeline);
-	const UserWishlist = await User.aggregate(UserPipeline);
+	// const UserWishlist = await User.aggregate(UserPipeline);
 
-	console.log(UserWishlist[0]);
+	// console.log(UserWishlist[0]);
 
-	if (Prod[0].PCode)
-		if (Prod.length === 0) {
-			return false;
-		} else {
-			return Prod[0];
-		}
+	if (Prod.length === 0) {
+		return false;
+	} else {
+		return Prod[0];
+	}
 }
 
+// Get all products
 async function allProducts() {
 	const pipeline = [
 		{
@@ -103,6 +103,7 @@ async function allProducts() {
 	return await Product.aggregate(pipeline);
 }
 
+// Delete a product
 async function deleteProduct(PCode) {
 	try {
 		await Product.deleteOne({ PCode });
@@ -112,6 +113,7 @@ async function deleteProduct(PCode) {
 	}
 }
 
+// Update stock
 async function updateStock(PCode, PStock) {
 	try {
 		const response = await Product.updateOne({ PCode: PCode }, [
@@ -127,6 +129,97 @@ async function updateStock(PCode, PStock) {
 	}
 }
 
+// Update cart
+async function updateCart({
+	PCode,
+	Email,
+	PricePerUnit,
+	TotalPrice,
+	Quantity,
+}) {
+	try {
+		const pipeline = [{ $match: { Email: Email, "Cart.PCode": PCode } }];
+		const aggr = await User.aggregate(pipeline);
+		console.log(aggr);
+		if (aggr.length > 0) {
+			const conditions = { Email: Email, "Cart.PCode": PCode };
+			const update = {
+				$set: {
+					"Cart.$.Quantity": Quantity, // Update the Quantity field for the matching element
+				},
+			};
+			const options = { new: true };
+			const updatedUser = await User.findOneAndUpdate(
+				conditions,
+				update,
+				options
+			);
+			if (updatedUser) {
+				console.log("Document updated:", updatedUser);
+				return "success";
+			} else {
+				console.log("User not found or no update performed.");
+				return "error";
+			}
+		} else {
+			const conditions = { Email: Email };
+			const update = {
+				$addToSet: {
+					Cart: {
+						PCode: PCode,
+						PricePerUnit: +PricePerUnit,
+						TotalPrice: +TotalPrice,
+						Quantity: Quantity,
+					},
+				},
+			};
+			const options = { new: true };
+
+			const updatedUser = await User.findOneAndUpdate(
+				conditions,
+				update,
+				options
+			);
+
+			if (updatedUser) {
+				console.log("Document updated:", updatedUser);
+				return "success";
+			} else {
+				console.log("User not found or no update performed.");
+				return "error";
+			}
+		}
+	} catch (error) {
+		console.log("Error updating document:", error);
+		return "error";
+	}
+}
+
+async function getQuantity({ Email, PCode }) {
+	// console.log(Email, PCode);
+	const pipeline = [{ $match: { Email: Email, "Cart.PCode": PCode } }];
+	try {
+		const res = await User.aggregate(pipeline);
+		return res[0].Cart;
+	} catch (err) {
+		return "Not There";
+	}
+}
+
+async function TrendingProducts() {
+	const pipeline = [
+		{
+			$match: {
+				PCategory: "Trending",
+			},
+		},
+	];
+
+	const TrendingProds = await Product.aggregate(pipeline);
+	console.log(TrendingProds);
+	return TrendingProds;
+}
+
 module.exports = {
 	addProduct,
 	validateProduct,
@@ -135,4 +228,28 @@ module.exports = {
 	allProducts,
 	deleteProduct,
 	updateStock,
+	updateCart,
+	getQuantity,
+	TrendingProducts,
 };
+
+// const conditions = { Email: Email };
+// const update = {
+// 	$push: {
+// 		Cart: {
+// 			PCode: PCode,
+// 			PricePerUnit: PricePerUnit,
+// 			TotalPrice: TotalPrice,
+// 			Quantity: 1,
+// 		},
+// 	},
+// };
+// const options = { new: true };
+
+// await User.findOneAndUpdate(conditions, update, options, (error, doc) => {
+// 	if (error) {
+// 		console.log(error);
+// 	}
+// 	console.log(doc);
+// 	return "success";
+// });

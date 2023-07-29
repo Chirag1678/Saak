@@ -9,51 +9,61 @@ import Link from "next/link";
 import axios from "axios";
 import { toastSuccess, toastError } from "../Toasts/Toast";
 import { signIn, useSession } from "next-auth/react";
+import { opacity } from "@cloudinary/url-gen/actions/adjust";
 
 const Signup = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	var username = "";
+	const [passStrength, setPassStrength] = useState("Weak");
+	let [username, setUsername] = useState("");
 	const [isAvailable, setIsAvailable] = useState("Unavailable");
+	const [disabled, setDisabled] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const newUser = {
-			Name: name,
-			Email: email,
-			Username: username,
-			Password: password,
-		};
-		if (
-			name !== "" &&
-			email !== "" &&
-			password !== "" &&
-			isAvailable !== "Unavailable"
-		) {
-			newUser.Username = username;
-			await axios
-				.post("http://localhost:8000/api/Auth/Signup", newUser)
-				.then((res) => {
-					if (res.status == 200) {
-						toastSuccess("Successfully Signed up");
-						setName("");
-						setEmail("");
-						setUsername("");
-						setPassword("");
-					} else {
-						toastError("Email already exists");
-					}
-				})
-				.catch((err) => {
-					toastError("Not Working");
-				});
+		var NewUser;
+		if (session) {
+			NewUser = {
+				Name: session.user.name,
+				Email: session.user.email,
+				Username: username,
+				Password: password,
+			};
+		} else {
+			NewUser = {
+				Name: name,
+				Email: email,
+				Username: username,
+				Password: password,
+			};
+		}
+
+		console.log(NewUser);
+
+		try {
+			const res = await axios.post(
+				"http://localhost:8000/api/Auth/Signup",
+				NewUser
+			);
+			if (res.status === 200) {
+				toastSuccess("Signup Successful");
+				setTimeout(() => {
+					window.location.href = "/";
+				}, 1000);
+			} else {
+				toastError("Signup Failed");
+				window.location.href = "/Auth/Signup";
+			}
+		} catch (err) {
+			console.log(err);
+			toastError("Signup Failed");
 		}
 	};
 
 	const handleUsername = async (user) => {
 		document.querySelector(".isAvailable").classList.remove("hidden");
-		username = user;
+		setUsername(user);
 
 		console.log(username);
 
@@ -88,8 +98,9 @@ const Signup = () => {
 	};
 
 	const { data: session } = useSession();
+
 	const handleGoogleLogin = () => {
-		signIn("google");
+		signIn("google", { callbackUrl: "http://localhost:3000/Auth/Signup" });
 	};
 	return (
 		<div className="bg-[url('./assets/Authentication/authBg.png')] h-screen bg-contain bg-no-repeat bg-bottom relative z-90 flex justify-center items-center">
@@ -149,11 +160,17 @@ const Signup = () => {
 								</div>
 								<input
 									type="text"
-									className="outline-none border-2 border-[#393037] rounded-lg p-[10px] text-base font-Cabinet text-[#393037] font-bold focus:border-[#fa645c] transition-all duration-75"
+									className={`outline-none border-2 border-[#393037] rounded-lg p-[10px] text-base font-Cabinet text-[#393037] font-bold focus:border-[#fa645c] transition-all duration-75 disabled:opacity-50`}
 									onChange={(e) => {
 										setName(e.target.value);
 									}}
-									value={name}
+									value={session ? session.user.name : name}
+									onLoad={
+										session
+											? () => setName(session.user.name)
+											: () => setName("")
+									}
+									disabled={session ? "disabled" : ""}
 								/>
 							</div>
 
@@ -186,17 +203,28 @@ const Signup = () => {
 								</div>
 								<input
 									type="email"
-									className="outline-none border-2 border-[#393037] rounded-lg p-[10px] text-base font-Cabinet text-[#393037] font-bold focus:border-[#fa645c] transition-all duration-75"
+									className="outline-none border-2 border-[#393037] rounded-lg p-[10px] text-base font-Cabinet text-[#393037] font-bold focus:border-[#fa645c] transition-all duration-75 disabled:opacity-50"
 									onChange={(e) => {
 										setEmail(e.target.value);
 									}}
-									value={email}
+									value={session ? session.user.email : email}
+									onLoad={
+										session
+											? () => setEmail(session.user.email)
+											: () => setEmail("")
+									}
+									disabled={session ? "disabled" : ""}
 								/>
 							</div>
 
 							<div className="flex flex-col gap-y-[0px]">
-								<div className="font-Cabinet text-base text-[#393037] font-bold">
-									Password
+								<div className="flex justify-between">
+									<div className="font-Cabinet text-base text-[#393037] font-bold">
+										Password
+									</div>
+									<div className=" isAvailable text-black hidden">
+										{passStrength}
+									</div>
 								</div>
 								<input
 									type="password"

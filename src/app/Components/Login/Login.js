@@ -24,7 +24,30 @@ const Login = () => {
 	// const name = useSelector((state) => state.user.value);
 
 	const handleGoogleSignin = async () => {
-		signIn("google", { callbackUrl: "http://localhost:3000/" });
+		await signIn("google", { callbackUrl: "http://localhost:3000/" });
+	};
+
+	const handleCredentialsSignin = async (e) => {
+		e.preventDefault();
+		try {
+			const result = await signIn("credentials", {
+				email,
+				password,
+				callbackUrl: "/",
+				redirect: false, // Redirect to the homepage after successful login
+			});
+
+			if (result?.error) {
+				toastError("Invalid Credentials");
+			} else {
+				// The user is successfully authenticated and the session is updated
+				toastSuccess("Login Successful");
+				router.push("/"); // Redirect to the homepage after successful login
+			}
+		} catch (error) {
+			console.log(error);
+			toastError("There was an error");
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -147,7 +170,7 @@ const Login = () => {
 							<div className="flex justify-center items-center">
 								<button
 									className="SignupBtnBg text-[#fff] rounded-lg p-[10px_20px] text-base font-Cabinet font-bold w-full"
-									onClick={handleSubmit}
+									onClick={handleCredentialsSignin}
 								>
 									Login
 								</button>

@@ -15,6 +15,7 @@ var name = "";
 const router = express.Router();
 router.post("/Signup", async (req, res) => {
 	const locationDetails = await getLocation();
+	console.log(req.body);
 	const user = {
 		Email: req.body.Email,
 		Name: req.body.Name,
@@ -51,25 +52,30 @@ router.post("/Login", async (req, res) => {
 	const found_user = await findUsers(email);
 	if (found_user == null) {
 		// user not found
-		res.send("User Not Found");
+		res.status(404).json("User Not Found");
 	} else {
 		const user = found_user;
-		const HashedPassword = CryptoJS.AES.decrypt(
-			user.Password,
-			process.env.SECRET_KEY
-		);
-		const OriginalPassowrd = HashedPassword.toString(CryptoJS.enc.Utf8);
-		if (OriginalPassowrd === password) {
-			// user is authenticated
-			res.status(200).json({
-				Name: user.Name,
-				Username: user.Username,
-				AuthStatus: "Authenticated",
-			});
-		} else {
-			// user is not authenticated
-			res.status(401).json({ error: "Wrong Password" });
-			// res.status(201).json("user is not authenticated");
+		if (user) {
+			const HashedPassword = CryptoJS.AES.decrypt(
+				user.Password,
+				process.env.SECRET_KEY
+			);
+			const OriginalPassowrd = HashedPassword.toString(CryptoJS.enc.Utf8);
+			if (OriginalPassowrd === password) {
+				// user is authenticated
+				console.log("User authed");
+				res.status(200).json({
+					Name: user.Name,
+					Username: user.Username,
+					Email: user.Email,
+					AuthStatus: "Authenticated",
+				});
+			} else {
+				// user is not authenticated
+				console.log("Unable to authenticate");
+				res.status(401).json({ error: "Wrong Password" });
+				// res.status(201).json("user is not authenticated");
+			}
 		}
 	}
 });

@@ -2,12 +2,16 @@
 
 import React, { useState } from "react";
 import ProductCard from "../../Global/ProductCard";
+import axios from "axios";
 
-const TrendingProducts = (props) => {
-	const cards = props.data;
-	return cards.map((card) => {
-		console.log(card);
-		return <ProductCard data={card} />;
+const TrendingProducts = async (props) => {
+	const { data } = await axios.get("http://localhost:8000/Product/Trending");
+	return data.map((card) => {
+		return (
+			<div className="flex justify-between w-full">
+				<ProductCard data={card} />
+			</div>
+		);
 	});
 };
 
