@@ -44,6 +44,7 @@ const handler = NextAuth({
 						return {
 							name: response.data.Name,
 							email: response.data.Email,
+							isAdmin: response.data.isAdmin,
 						};
 					case 401:
 						throw new Error("Email or password doesn't match");

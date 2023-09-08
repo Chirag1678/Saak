@@ -21,6 +21,7 @@ async function addProduct(NewProduct) {
 			PCategory: NewProduct.PCategory,
 			PBrand: NewProduct.PBrand,
 			PReviews: NewProduct.PReviews,
+			PWarranty: NewProduct.PWarranty,
 			PDimensions: {
 				PWeight: NewProduct.PDimensions.PWeight,
 				PLength: NewProduct.PDimensions.PLength,
@@ -140,7 +141,6 @@ async function updateCart({
 	try {
 		const pipeline = [{ $match: { Email: Email, "Cart.PCode": PCode } }];
 		const aggr = await User.aggregate(pipeline);
-		console.log(aggr);
 		if (aggr.length > 0) {
 			const conditions = { Email: Email, "Cart.PCode": PCode };
 			const update = {
@@ -155,7 +155,7 @@ async function updateCart({
 				options
 			);
 			if (updatedUser) {
-				console.log("Document updated:", updatedUser);
+				console.log("Document updated");
 				return "success";
 			} else {
 				console.log("User not found or no update performed.");
@@ -169,7 +169,7 @@ async function updateCart({
 						PCode: PCode,
 						PricePerUnit: +PricePerUnit,
 						TotalPrice: +TotalPrice,
-						Quantity: Quantity,
+						Quantity: +Quantity,
 					},
 				},
 			};
@@ -182,7 +182,7 @@ async function updateCart({
 			);
 
 			if (updatedUser) {
-				console.log("Document updated:", updatedUser);
+				console.log("Document updated");
 				return "success";
 			} else {
 				console.log("User not found or no update performed.");

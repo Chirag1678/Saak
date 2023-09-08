@@ -7,9 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import FormData from "form-data";
 import { Cloudinary } from "@cloudinary/url-gen";
+import { toastError } from "../../Toasts/Toast";
 
-const TextArea = ({ title, required, placeholder, Code }) => {
-	const dispatch = useDispatch();
+const TextArea = ({
+	title,
+	required,
+	placeholder,
+	Code,
+	name,
+	onChange,
+	value,
+	...otherProps
+}) => {
 	return (
 		<div>
 			<div className="text-white text-2xl">{title}</div>
@@ -18,56 +27,76 @@ const TextArea = ({ title, required, placeholder, Code }) => {
 				required={required}
 				placeholder={placeholder}
 				rows={5}
-				onChange={(e) => {
-					dispatch(addProduct({ Code: Code, Data: e.target.value }));
-				}}
+				name={name}
+				onChange={onChange} // Use the provided onChange prop directly
+				value={value}
+				{...otherProps}
 			/>
 		</div>
 	);
 };
 
-const InputBox = ({ title, type, required, placeholder, Code }) => {
-	const dispatch = useDispatch();
-	const a = useSelector((state) => state.Product);
+const InputBox = ({
+	title,
+	type,
+	required,
+	placeholder,
+	Code,
+	...otherProps
+}) => {
 	return (
 		<div>
 			<div className="text-white text-2xl font-Cabinet">{title}</div>
 			<input
-				type={type}
 				className="bg-[#d8d1d0] text-[#302b2f] placeholder:text-[#302b2f79] py-3 px-2 rounded-2xl outline-none w-full font-Cabinet font-bold"
+				type={type}
 				required={required}
 				placeholder={placeholder}
 				onChange={(e) => {
-					dispatch(addProduct({ Code: Code, Data: e.target.value }));
-					console.log(a);
+					handleChange(e);
 				}}
+				{...otherProps}
 			/>
 		</div>
 	);
 };
 
-const ImageInputBox = ({ title, type, required, placeholder, name, Code }) => {
+const InputBox1 = ({
+	title,
+	value,
+	placeholder,
+	Code,
+	handleChange,
+	...otherProps
+}) => {
+	return (
+		<div>
+			<div className="text-white text-2xl font-Cabinet">{title}</div>
+			<input
+				value={value}
+				className="bg-[#d8d1d0] text-[#302b2f] placeholder:text-[#302b2f79] py-3 px-2 rounded-2xl outline-none w-full font-Cabinet font-bold"
+				placeholder={placeholder}
+				onChange={(e) => {
+					handleChange(e);
+				}}
+				{...otherProps}
+			/>
+		</div>
+	);
+};
+
+const ImageInputBox = ({
+	title,
+	type,
+	required,
+	placeholder,
+	name,
+	Code,
+	...otherProps
+}) => {
 	const a = useSelector((state) => state.Product);
 	const dispatch = useDispatch();
 
-	const CloudinaryUploader = async (e) => {
-		const file = e.target.files[0];
-		let data = new FormData();
-		data.append("photo", file);
-		console.log(file);
-
-		const res = await axios.post(
-			"http://localhost:8000/AdminImg/ImageUpload",
-			data
-		);
-		console.log(res);
-
-		if (res.status === 200) {
-			dispatch(addProduct({ Code: Code, Data: res.data.URL }));
-
-			console.log(a);
-		}
-	};
 	return (
 		<div className="text-white text-2xl flex flex-col w-12">
 			<input
@@ -76,9 +105,10 @@ const ImageInputBox = ({ title, type, required, placeholder, name, Code }) => {
 				id={title}
 				placeholder={placeholder}
 				className={`before:content-['${placeholder}'] imgInput hidden`}
-				onChange={(e) => {
-					CloudinaryUploader(e);
+				onChange={async (e) => {
+					handleImageChange(e);
 				}}
+				{...otherProps}
 			/>
 			<label
 				htmlFor={title}
@@ -93,10 +123,7 @@ const ImageInputBox = ({ title, type, required, placeholder, name, Code }) => {
 	);
 };
 
-const CheckBoxInputs = ({ features, Code }) => {
-	const dispatch = useDispatch();
-	const a = useSelector((state) => state.Product);
-	const featuresSet = new Set();
+const CheckBoxInputs = ({ features, Code, onChange }) => {
 	return (
 		<div className="flex flex-col gap-y-4">
 			<div className="featureTitle text-3xl text-white font-Cabinet font-medium">
@@ -104,10 +131,9 @@ const CheckBoxInputs = ({ features, Code }) => {
 			</div>
 			<div>
 				{features.map((e) => {
-					var i = 0;
 					return (
 						<div className="grid grid-cols-2 gap-x-4" key={`div${e}`}>
-							<label htmlFor={e} className=" cursor-pointer" key={`label${e}`}>
+							<label htmlFor={e} className="cursor-pointer" key={`label${e}`}>
 								{e}
 							</label>
 							<input
@@ -117,15 +143,8 @@ const CheckBoxInputs = ({ features, Code }) => {
 								className="m-1 cursor-pointer outline-none checkbox bg-[#d8d1d0]"
 								key={e}
 								onChange={(x) => {
-									if (!x.target.checked) {
-										featuresSet.delete(e);
-									} else {
-										featuresSet.add(e);
-									}
-									dispatch(
-										addProduct({ Code: Code, Data: Array.from(featuresSet) })
-									);
-									console.log(a);
+									// console.log(x.target.name);
+									onChange(x.target.name, x.target.checked);
 								}}
 							/>
 						</div>
@@ -142,22 +161,18 @@ const CheckBoxInputs = ({ features, Code }) => {
 	);
 };
 
-const SelectInput = ({ data, Code }) => {
-	const dispatch = useDispatch();
-	const a = useSelector((state) => state.Product);
-
+const SelectInput = ({ data, Code, onChange, value, ...otherProps }) => {
 	return (
 		<div>
 			<div className="text-2xl text-white font-Cabinet">Product Category *</div>
 			<div className="bg-[#d8d1d0] px-4 rounded-2xl">
 				<select
-					name="category"
+					name="PCategory"
 					id="category"
 					className="bg-[#d8d1d0] text-[#302b2f] placeholder:text-[#302b2f79] py-4 px-2 rounded-2xl outline-none w-full font-Cabinet font-bold"
-					onChange={(e) => {
-						dispatch(addProduct({ Code: Code, Data: e.target.value }));
-						console.log(a);
-					}}
+					onChange={onChange}
+					value={value}
+					{...otherProps}
 				>
 					{data.map((e) => {
 						return (
@@ -176,4 +191,11 @@ const SelectInput = ({ data, Code }) => {
 	);
 };
 
-export { InputBox, TextArea, ImageInputBox, CheckBoxInputs, SelectInput };
+export {
+	InputBox,
+	TextArea,
+	ImageInputBox,
+	CheckBoxInputs,
+	SelectInput,
+	InputBox1,
+};

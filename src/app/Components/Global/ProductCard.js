@@ -5,67 +5,67 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
+import LikeIcon from "../ProductItem/Subcomponents/LikeIcon";
+import { useId } from "react";
+import "./style.css";
 
 const ProductCard = ({ data }) => {
 	const [cartCount, setCartCount] = useState(0);
 
+	// const [hovered, setHovered] = useState("500px");
+
 	const onEnter = ({ currentTarget }) => {
-		gsap.to(currentTarget, { borderColor: "#cb492b", ease: "circ.out" });
+		let timeline = gsap.timeline();
+		timeline.to(currentTarget, {
+			boxShadow: "0px 4px 7px 0px rgba(147, 147, 147, 0.50)",
+		});
+		// .to(currentTarget, {
+		// 	height: "fit-content",
+		// })
+		// .set(currentTarget, { height: "fit-content" });
 	};
 
 	const onLeave = ({ currentTarget }) => {
-		gsap.to(currentTarget, { borderColor: "" });
-	};
+		let timeline = gsap.timeline();
 
-	const increment = () => {
-		setCartCount(cartCount + 1);
-	};
-
-	const decrement = () => {
-		setCartCount(cartCount - 1);
+		timeline.to(currentTarget, {
+			boxShadow: "0px 0px 0px 0px rgba(147, 147, 147, 0.50)",
+		});
+		// .to(currentTarget, {
+		// 	height: "400px",
+		// 	transition: "height 200ms",
+		// })
+		// .set(currentTarget, { height: "400px" });
 	};
 	return (
 		<div
-			className="flex flex-col p-[17px_8px] rounded-2xl gap-y-3 h-full border-2 border-transparent transition-all w-full"
+			className={`flex flex-col rounded-2xl gap-y-3 border-2 border-transparent w-full boxes relative px-2`}
 			onMouseEnter={onEnter}
 			onMouseLeave={onLeave}
+			key={data.PCode}
 		>
+			<div className="absolute top-2 right-2"></div>
 			<Link href={`/Product/${data.PCode}`}>
 				<div className="img relative h-32">
 					<Image
 						src={data.PImages.MainImg}
 						alt=""
 						fill
-						className="w-full rounded-xl object-cover"
+						className="w-full rounded-t-2xl object-cover"
 					/>
 				</div>
-				<div className="text flex flex-col gap-y-1">
+				<div className="text flex flex-col pt-3 px-3">
 					<div className="head text-base text-white font-Cabinet font-bold">
 						{data.PName}
 					</div>
-					<div className="flex justify-between items-center">
-						<div className="price text-[14px] font-bold">₹ {data.PPrice}</div>
-						<div className="cart gap-x-1 flex items-center justify-center">
-							<button className="minus text-white" onClick={decrement}>
-								-
-							</button>
-							<div
-								className={`cartAmount bg-[#dbd1d0] rounded-full text-[#302b2f] w-10 h-10 flex justify-center items-center`}
-							>
-								{cartCount === 0 ? (
-									<Image
-										src={require(`../../assets/Dashboard/cart.svg`).default}
-										alt="0"
-										width="20"
-										height="20"
-									/>
-								) : (
-									cartCount
-								)}
-							</div>
-							<button className="plus text-white" onClick={increment}>
-								+
-							</button>
+
+					<div className="flex justify-between items-center w-full py-2">
+						<div className="font-bold font-Cabinet text-base">
+							₹ {data.PPrice} <span className="text-sm">+ taxes</span>
+						</div>
+
+						<div className="inline-flex p-[9px_29px] bg-[#302b2f] rounded-[6px]">
+							<LikeIcon PCode={data.PCode} />
 						</div>
 					</div>
 				</div>

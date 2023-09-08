@@ -8,13 +8,16 @@ import PriceCard from "./Subcomponents/PriceCard";
 import CouponCard from "./Subcomponents/CouponCard";
 import DeliveryCalendar from "./Subcomponents/DeliveryCalendar";
 import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const Cart = () => {
-	const username = localStorage.getItem("USERNAME");
-	console.log(username);
+	const { data: session } = useSession();
+	console.log(session?.user);
 	return (
 		<>
-			{username !== undefined && username !== null && username !== "" ? (
+			{session?.user?.name !== undefined &&
+			session?.user?.name !== null &&
+			session?.user?.name !== "" ? (
 				<div className="h-full">
 					<div className="flex items-end justify-between w-full">
 						<Title title={"Cart"} />
@@ -28,6 +31,18 @@ const Cart = () => {
 							<div className="grid col-span-8 w-full h-full gap-y-4">
 								<div className="cartItems w-full flex flex-col justify-start bg-[#332f33] rounded-3xl h-fit">
 									<div className="w-full flex flex-col justify-center  p-2 rounded-2xl">
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
+										<CartCard />
 										<CartCard />
 										<CartCard />
 										<CartCard />

@@ -67,3 +67,7 @@ body {
 	border: 1px solid #f00;
 }
  */
+
+.HeroImg {
+	filter: drop-shadow(59px 0px 207px 32px #fa645c);
+}

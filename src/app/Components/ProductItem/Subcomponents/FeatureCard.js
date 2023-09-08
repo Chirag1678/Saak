@@ -37,74 +37,76 @@ const FeatureCard = ({ data }) => {
 	const FeatureIcons1 = data.Features;
 	// console.log(FeatureIcons1);
 	return (
-		<div className="w-full h-full flex-col bg-[#dbd1d0] py-[25px] rounded-2xl px-10">
-			<div className="flex w-full justify-between gap-x-16 gap-y-[25px]">
-				<div className="flex-col w-full">
-					<div className="font-Cabinet text-4xl font-bold text-[#302b2f]">
-						{data.Name}
-					</div>
-					<div className="flex justify-between w-full items-end">
-						<div className="flex gap-x-[8px] items-end">
-							<div className="star flex items-end gap-x-[6px]">
-								<div className="h-6">
-									<Star />
+		<div className="h-fit flex items-center bg-[#dbd1d0] rounded-2xl">
+			<div className="w-full h-fit flex-col  py-[25px] px-10">
+				<div className="flex w-full justify-between gap-x-16 gap-y-[25px]">
+					<div className="flex-col w-full">
+						<div className="font-Cabinet text-4xl font-bold text-[#302b2f]">
+							{data.Name}
+						</div>
+						<div className="flex justify-between w-full items-end">
+							<div className="flex gap-x-[8px] items-end">
+								<div className="star flex items-end gap-x-[6px]">
+									<div className="h-6">
+										<Star />
+									</div>
+									<div className="text-[14px] font-lato text-black flex items-end h-full">
+										{data.Rating}
+									</div>
+									<div className="text-[12px] text-black font-bold flex items-end h-full">
+										({data.ReviewsNum} reviews)
+									</div>
 								</div>
-								<div className="text-[14px] font-lato text-black flex items-end h-full">
-									{data.Rating}
-								</div>
-								<div className="text-[12px] text-black font-bold flex items-end h-full">
-									({data.ReviewsNum} reviews)
+
+								<div className="bar w-[2px] h-[20px] bg-[#59354f]"></div>
+
+								<div className="purchased text-[#000] font-lato flex items-end gap-x-1 leading-tight">
+									{data.Purchased}{" "}
+									<span className="font-bold font-lato text-[14px]">
+										Purchased
+									</span>
 								</div>
 							</div>
 
-							<div className="bar w-[2px] h-[20px] bg-[#59354f]"></div>
+							<div className="font-bold text-black text-[14px] leading-tight">
+								By {data.Brand[0]}
+							</div>
+						</div>
+					</div>
 
-							<div className="purchased text-[#000] font-lato flex items-end gap-x-1 leading-tight">
-								{data.Purchased}{" "}
-								<span className="font-bold font-lato text-[14px]">
-									Purchased
-								</span>
+					<div className=" w-[18%] flex items-end">
+						<button className="likeBtn relative w-full bg-[#302b2f] rounded-xl likeBtn flex justify-center py-2">
+							<LikeIcon PCode={data.PCode} />
+						</button>
+					</div>
+				</div>
+
+				<div className="flex gap-x-[37px] mt-[25px] justify-between">
+					<div className="flex flex-col gap-y-[27px]">
+						<div className="flex flex-col gap-y-[7px]">
+							<div className="featuresText text-black text-3xl font-Cabinet font-bold">
+								Features
+							</div>
+
+							<div className="featureIcons flex gap-x-[23px]">
+								<FeatureIcons img={BoltOn} />
+								<FeatureIcons img={LinexCoated} />
+								<FeatureIcons img={Compatible} />
 							</div>
 						</div>
 
-						<div className="font-bold text-black text-[14px] leading-tight">
-							By {data.Brand[0]}
-						</div>
-					</div>
-				</div>
-
-				<div className=" w-[18%] flex items-end">
-					<button className="likeBtn relative w-full bg-[#302b2f] rounded-xl likeBtn flex justify-center py-2">
-						<LikeIcon PCode={data.PCode} />
-					</button>
-				</div>
-			</div>
-
-			<div className="flex gap-x-[37px] mt-[25px] justify-between">
-				<div className="flex flex-col gap-y-[27px]">
-					<div className="flex flex-col gap-y-[7px]">
-						<div className="featuresText text-black text-3xl font-Cabinet font-bold">
-							Features
-						</div>
-
-						<div className="featureIcons flex gap-x-[23px]">
-							<FeatureIcons img={BoltOn} />
-							<FeatureIcons img={LinexCoated} />
-							<FeatureIcons img={Compatible} />
+						<div className="featurePoints text-black">
+							<ul className="font-lato text-base">
+								{arrDesc.map((e) => {
+									return <li key={e}>{e}</li>;
+								})}
+							</ul>
 						</div>
 					</div>
 
-					<div className="featurePoints text-black">
-						<ul className="font-lato text-base">
-							{arrDesc.map((e) => {
-								return <li key={e}>{e}</li>;
-							})}
-						</ul>
+					<div className="bg-[#302b2f] flex justify-center items-center text-center px-5 text-4xl rounded-2xl font-Cabinet font-bold">
+						{data.Warranty} Year Warranty
 					</div>
-				</div>
-
-				<div className="bg-[#302b2f] flex justify-center items-center text-center px-5 text-4xl rounded-2xl font-Cabinet font-bold">
-					{data.Warranty} Year Warranty
 				</div>
 			</div>
 		</div>

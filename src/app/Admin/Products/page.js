@@ -55,9 +55,11 @@ const Page = async () => {
 											Product Code: {e.PCode}
 										</div>
 
-										<button>
-											<Image src={EditIcon} />
-										</button>
+										<Link href={`/Admin/Products/EditProduct/${e.PCode}`}>
+											<button>
+												<Image src={EditIcon} />
+											</button>
+										</Link>
 									</div>
 									<div className="flex gap-x-4">
 										<div className="PName">Product Name: {e.PName}</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Grid1 from "./ImageGrids/Grid1";
 import Grid2 from "./ImageGrids/Grid2";
 import Grid3 from "./ImageGrids/Grid3";
@@ -9,6 +9,7 @@ import Grid5 from "./ImageGrids/Grid5";
 
 const ImageGrid = ({ data }) => {
 	var numImages = 0;
+
 	// console.log(Object.values(data));
 	Object.values(data).forEach((e) => {
 		if (typeof e === "string") {

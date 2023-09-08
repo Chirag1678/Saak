@@ -5,7 +5,7 @@ import "./style.css";
 
 const Hero = () => {
 	return (
-		<div className="container mx-auto pt-12 z-30 2xl:h-screen xl:h-screen lg:h-screen md:h-fit sm:h-fit h-fit grid grid-rows-6">
+		<div className="container mx-auto pt-12 z-30 2xl:h-screen xl:h-fit lg:h-screen md:h-fit sm:h-fit h-fit grid grid-rows-1">
 			<div className="row-span-3 flex 2xl:items-center xl:items-center">
 				<div className="grid 2xl:grid-cols-12 xl:grid-cols-12 lg:grid-cols-12 md:grid-cols-2 sm:grid-cols-2 grid-cols-2 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-10 px-10">
 					<div className="col-span-2"></div>

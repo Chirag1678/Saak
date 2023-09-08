@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { useSession, signOut } from "next-auth/react";
+import Logo from "../../assets/Logo/Saak.svg";
 
 function Login() {
 	return (
@@ -21,10 +22,8 @@ function Login() {
 }
 
 const Nav = () => {
-	const { data: session } = useSession();
-	const [name, setName] = useState();
-
-	console.log(session);
+	const { data: session } = useSession({});
+	const [name, setName] = useState("");
 
 	useEffect(() => {
 		if (session?.user?.name) {
@@ -42,13 +41,8 @@ const Nav = () => {
 			<header className="container mx-auto w-full bg-[#393037] z-30 py-8 fixed">
 				<nav id="Nav" className="flex justify-between items-center">
 					<div className="gap-x-[97px] flex items-center">
-						<Link href="/">
-							<Image
-								src="https://res.cloudinary.com/dmgmcljcv/image/upload/v1689585648/Saak_jkq49h.svg"
-								alt="Logo"
-								width="100"
-								height="100"
-							/>
+						<Link href="/" className="relative p-7">
+							<Image src={Logo} alt="Logo" fill />
 						</Link>
 						<div className="flex gap-[30px]">
 							<Link href="/about" className=" font-latoLight navActive">

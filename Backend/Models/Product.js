@@ -51,7 +51,6 @@ let Product = new Schema({
 	// Category
 	PCategory: {
 		type: String,
-		required: true,
 		default: "Normal",
 	},
 
@@ -92,6 +91,13 @@ let Product = new Schema({
 			Rating: String,
 		},
 	],
+
+	// Warranty
+	PWarranty: {
+		type: Number,
+		default: 0,
+		required: true,
+	},
 });
 
 module.exports.Product = mongoose.model("Catalogue", Product);

@@ -3,7 +3,7 @@ import Cart from "../Components/Cart/Cart";
 
 const Page = () => {
 	return (
-		<div className="cartParent pt-24 container mx-auto">
+		<div className="cartParent pt-32 container mx-auto">
 			<Cart />
 		</div>
 	);

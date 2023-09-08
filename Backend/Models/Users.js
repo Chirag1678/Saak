@@ -27,6 +27,10 @@ let User = new Schema({
 		Continent: String,
 		Timezone: String,
 	},
+	isAdmin: {
+		type: Boolean,
+		default: false,
+	},
 	Addresses: [
 		{
 			City: {

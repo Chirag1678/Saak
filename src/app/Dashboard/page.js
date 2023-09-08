@@ -7,15 +7,19 @@ import WatchCatalogueCard from "../Components/Dashboard/WatchCatalogueCard";
 import { dashboardBoxes } from "../layout";
 
 const Dashboard = () => {
-	return (
-		<div className="container mx-auto py-32">
-			<Title text="Dashboard" />
-			<TextBoxes array={dashboardBoxes} />
-			<Itemsfy />
-			<TrendingProds />
-			<WatchCatalogueCard />
-		</div>
-	);
+	try {
+		return (
+			<div className="container mx-auto py-32">
+				<Title text="Dashboard" />
+				<TextBoxes array={dashboardBoxes} />
+				<Itemsfy />
+				<TrendingProds />
+				<WatchCatalogueCard />
+			</div>
+		);
+	} catch (e) {
+		return <div className="Loading">Loading...</div>;
+	}
 };
 
 export default Dashboard;

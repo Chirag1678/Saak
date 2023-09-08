@@ -19,6 +19,8 @@ const { findUsers } = require("../Controllers/Users");
 
 const router = express.Router();
 
+const { Product } = require("../Models/Product");
+
 // Path: '/Products/Find/:id
 router.post("/Find/:id", async (req, res) => {
 	// console.log(req.body);
@@ -50,7 +52,7 @@ router.post("/Find/:id", async (req, res) => {
 				Rating: 0,
 				Purchased: 0,
 				ReviewsNum: ProductResult.PReviews.length,
-				Warranty: 0,
+				Warranty: ProductResult.PWarranty,
 				Stock: ProductResult.PStock,
 				Features: [],
 				Reviews: [...ProductResult.PReviews],
@@ -72,23 +74,25 @@ router.get("/deleteAllProducts", async (req, res) => {
 
 // Path: '/Products/addProduct'
 router.post("/addProduct", async (req, res) => {
-	const NewProduct = {
+	let NewProduct = req.body;
+	NewProduct = {
 		PName: req.body.PName,
 		PCode: req.body.PCode,
 		PDescription: req.body.PDescription,
 		PPrice: req.body.PPrice,
 		PFeatures: req.body.PFeatures,
 		PImages: {
-			MainImg: req.body.MainImg,
-			Img1: req.body.Img1,
-			Img2: req.body.Img2,
-			Img3: req.body.Img3,
-			Img4: req.body.Img4,
+			MainImg: req.body.PImages.MainImg,
+			Img1: req.body.PImages.Img1,
+			Img2: req.body.PImages.Img2,
+			Img3: req.body.PImages.Img3,
+			Img4: req.body.PImages.Img4,
 		},
 		PStock: req.body.PStock,
 		PCategory: req.body.PCategory,
 		PBrand: req.body.PBrand,
 		PReviews: req.body.PReviews,
+		PWarranty: req.body.PWarranty,
 		PDimensions: {
 			PWeight: req.body.PWeight,
 			PLength: req.body.PLength,
@@ -99,9 +103,11 @@ router.post("/addProduct", async (req, res) => {
 
 	const status = await addProduct(NewProduct);
 	if (status !== false) {
-		res.send(`Added ${NewProduct.PName}`);
+		res.status(200).json(`Added ${NewProduct.PName}`);
 	} else {
-		res.send(`Product wasn't added because ${NewProduct.PCode} already exists`);
+		res
+			.status(400)
+			.json(`Product wasn't added because ${NewProduct.PCode} already exists`);
 	}
 });
 
@@ -124,9 +130,9 @@ router.post("/CartHandler", async (req, res) => {
 
 	const updater = updateCart(UpdateData);
 	if (updater) {
-		res.status(200).json("True");
+		res.status(200).json("Updated Cart");
 	} else {
-		res.status(401).json("False");
+		res.status(401).json("Unable to Update Cart");
 	}
 });
 
@@ -176,6 +182,27 @@ router.post("/Wishlist/:id", async (req, res) => {
 router.get("/Trending", async (req, res) => {
 	const TrendingProds = await TrendingProducts();
 	res.send(TrendingProds);
+});
+
+router.get("/allFeatures", async (req, res) => {
+	const pipeline = [
+		{
+			$project: {
+				_id: 0,
+				PCode: 1,
+			},
+		},
+		{
+			$match: {
+				// Your match conditions here
+			},
+		},
+	];
+
+	const result = await Product.aggregate(pipeline);
+	console.log(result);
+
+	res.send(result);
 });
 
 module.exports = router;

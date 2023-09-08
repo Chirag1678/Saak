@@ -68,6 +68,7 @@ router.post("/Login", async (req, res) => {
 					Name: user.Name,
 					Username: user.Username,
 					Email: user.Email,
+					isAdmin: user.isAdmin,
 					AuthStatus: "Authenticated",
 				});
 			} else {
