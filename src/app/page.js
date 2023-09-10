@@ -5,6 +5,7 @@ import HeroImg from "./assets/Home/TharBg.png";
 import { useSession } from "next-auth/react";
 import "./globals.css";
 import Image from "next/image";
+import Fifth from "./Components/Home/Fifth";
 
 export default async function Home() {
 	return (
@@ -28,6 +29,7 @@ export default async function Home() {
 			</div>
 
 			<Fourth />
+			<Fifth />
 		</main>
 	);
 }
